@@ -48,15 +48,23 @@ public CustomerEntity toBasicEntity(CustomerRequestDto request) {
                         address.setAddressLine1(addr.getAddressLine1());
                         address.setAddressLine2(addr.getAddressLine2());
 
+                        CityEntity city = null;
+                        CountryEntity country = null;
 
-                        CityEntity city = cityRepository.findByName(addr.getCityName())
-                                .orElse(null);
+                        if (addr.getCityId() != null) {
+                            city = cityRepository.findById(addr.getCityId()).orElse(null);
+                        } else if (addr.getCityName() != null) {
+                            city = cityRepository.findByName(addr.getCityName()).orElse(null);
+                        }
+
+                        if (addr.getCountryId() != null) {
+                            country = countryRepository.findById(addr.getCountryId()).orElse(null);
+                        } else if (addr.getCountryName() != null) {
+                            country = countryRepository.findByName(addr.getCountryName()).orElse(null);
+                        }
+
                         address.setCity(city);
-
-                        CountryEntity country = countryRepository.findByName(addr.getCountryName())
-                                .orElse(null);
                         address.setCountry(country);
-
                         address.setCustomer(customer);
                         return address;
                     }).collect(Collectors.toList());
