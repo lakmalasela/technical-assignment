@@ -24,11 +24,11 @@ A full-stack web application for managing customers using Java Spring Boot and R
    ```bash
    cd frontend
 2. Install dependencies:
-  ```bash
-  npm install
+   ```bash
+   npm install
 3. If you encounter dependency conflicts or peer dependency issues, use:
-  ```bash
-  npm install --force
+   ```bash
+   npm install --force
 4. Start the development server:
-  ```bash
-  npm start
+   ```bash
+   npm start
