@@ -108,63 +108,6 @@ public CustomerEntity toBasicEntity(CustomerRequestDto request) {
         return response;
     }
 
-//    public CustomerEntity excelToEntity(CustomerExcelDto dto) {
-//        CustomerEntity customer = new CustomerEntity();
-//        customer.setName(dto.getName());
-//        customer.setDateOfBirth(dto.getDateOfBirth());
-//        customer.setNic(dto.getNic());
-//
-//        // Set mobile numbers
-//        if (dto.getMobileNumbers() != null) {
-//            List<MobileNumberEntity> mobiles = dto.getMobileNumbers().stream()
-//                    .map(num -> {
-//                        MobileNumberEntity mobile = new MobileNumberEntity();
-//                        mobile.setNumber(num);
-//                        mobile.setCustomer(customer);
-//                        return mobile;
-//                    }).collect(Collectors.toList());
-//            customer.setMobileNumbers(mobiles);
-//        }
-//
-//        // Set addresses
-//        if (dto.getAddresses() != null) {
-//            List<AddressEntity> addresses = dto.getAddresses().stream()
-//                    .map(addr -> {
-//                        AddressEntity address = new AddressEntity();
-//                        address.setAddressLine1(addr.getAddressLine1());
-//                        address.setAddressLine2(addr.getAddressLine2());
-//
-//                        // Find or create city/country
-//                        CityEntity city = cityRepository.findByName(addr.getCityName())
-//                                .orElseGet(() -> {
-//                                    CityEntity newCity = new CityEntity();
-//                                    newCity.setName(addr.getCityName());
-//                                    return cityRepository.save(newCity);
-//                                });
-//
-//                        CountryEntity country = countryRepository.findByName(addr.getCountryName())
-//                                .orElseGet(() -> {
-//                                    CountryEntity newCountry = new CountryEntity();
-//                                    newCountry.setName(addr.getCountryName());
-//                                    return countryRepository.save(newCountry);
-//                                });
-//
-//                        address.setCity(city);
-//                        address.setCountry(country);
-//                        address.setCustomer(customer);
-//                        return address;
-//                    }).collect(Collectors.toList());
-//            customer.setAddresses(addresses);
-//        }
-//
-//        // Set parent if exists
-//        if (dto.getParentNic() != null) {
-//            customerRepository.findByNic(dto.getParentNic())
-//                    .ifPresent(customer::setParent);
-//        }
-//
-//        return customer;
-//    }
 public CustomerEntity excelToEntity(CustomerExcelDto dto) {
     CustomerEntity customer = new CustomerEntity();
     customer.setName(dto.getName());
