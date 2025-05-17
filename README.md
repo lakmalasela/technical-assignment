@@ -16,5 +16,19 @@ A full-stack web application for managing customers using Java Spring Boot and R
 
 ---
 
-## 📁 Project Structure
+## � Installation Guide
 
+### Frontend Setup
+
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+2. Install dependencies:
+  ```bash
+  npm install
+3. If you encounter dependency conflicts or peer dependency issues, use:
+  ```bash
+  npm install --force
+4. Start the development server:
+  ```bash
+  npm start
